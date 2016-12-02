@@ -1,0 +1,4 @@
+driverName = org.postgresql.Driver
+user = 
+url =  jdbc:postgresql://pc12028.mathematik.uni-marburg.de:5432/postgres
+password = 

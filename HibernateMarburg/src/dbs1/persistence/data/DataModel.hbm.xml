@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="dbs1.persistence.data" >
+<!--PERSON   -->
+    <class name="Person" table="H_PERSON">
+        <id name="id" type="long">
+            <column name="ID" />
+            <!-- use database sequence generator-->
+           <generator class="native"/> 
+        </id>
+        <natural-id >
+        	 <property name="personalNr" type="java.lang.String">
+            		<column name="PERSONALNR" />
+      		 </property>
+        </natural-id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="vorname" type="java.lang.String">
+            <column name="VORNAME" />
+        </property>
+        <property name="lohn">
+        </property>
+        <many-to-one name="abteilung" column="ABT_ID" not-null="true"/>
+   
+    </class>
+<!--   Abteilung -->
+    <class name="Abteilung" table="H_ABTEILUNG">
+    	  <id name="id" type="long">
+            <column name="ABT_ID" />
+           <generator class="native"/> 
+        </id>
+        <property name="abteilungsName">
+        </property>
+        <set name="person" inverse="true">
+        <key column="ABT_ID"/>
+        <one-to-many class ="Person"/>
+        </set>
+        <many-to-one name="leiter" column="ID"  not-null="false"/>
+    </class>
+<!-- Maschinen -->
+    <class name="AbstrakteMaschine" abstract="true" table="H_Maschinen">
+    	<id name="id" type="long" column="MNR">
+    		<generator class="native"></generator>
+    	</id>
+    	<discriminator column="MaschinenTyp" type ="string" />
+    	<property name="leistung"></property>
+    	<property name="name"></property>
+    	<subclass name="ElektroMaschine" discriminator-value="EM">
+    		<property name="netzspannung"/>
+    		<property name="aufnahmeleistung"/>
+    	</subclass>
+    	<subclass name="KraftstoffMaschine" discriminator-value="KM">
+    		<property name="kraftstroff"/>
+    		<property name="verbrauch"/>
+    	</subclass>
+    </class>
+<!-- PMZuteilung  -->
+    <class name="PMZuteilung" table="H_PMZuteilung" >
+    	<id name="id" type="long" column="PMNR">
+    		<generator class="native"></generator>
+    	</id>
+    	<property name="note"></property>
+    	<many-to-one name="maschine" column="MNR" not-null="true"/>
+    	<many-to-one name="mitarbeiter" column="ID" not-null="true"/>
+    </class>
+</hibernate-mapping>

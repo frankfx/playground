@@ -1,0 +1,30 @@
+1.) a. Start Server: endpoint.MathPublisher
+    b. Test It: http://localhost:9999/ws/marita?wsdl
+
+2.) In another project or on other computers use wsimport to generate Servicefunctions of the webservice
+	-This wsimport tool is bundle with the JDK, you can find it at “JDK_PATH/bin” folder.
+	
+	--> wsimport -keep http://localhost:9999/ws/marita?wsdl
+	
+	- as result we get the MyMath interface and a Service class
+	- organize these classes
+
+3.) create client
+
+package client;
+
+import ws.MathImplService;
+import ws.MyMath;
+
+public class TestClient {
+	public static void main(String[] args) {
+		MathImplService mathService = new MathImplService();
+		MyMath math = mathService.getMathImplPort();
+		
+		System.out.println(math.sub(9, 2));
+		System.out.println(math.sub(9, 2));
+	}
+}
+
+
+4.) Another example is the MathClient written in Python

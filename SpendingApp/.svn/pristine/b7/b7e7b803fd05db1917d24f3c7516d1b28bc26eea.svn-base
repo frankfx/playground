@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="de.application.spending">
+
+    <class name="SpendingItem" table="SPENDING">
+		<meta attribute="class-description">
+			 This class contains the spending items. 
+		</meta>
+      
+        <id name="id" type="int" column="SPENDING_ID">
+            <generator class="increment"/>
+            <!-- <generator class="native"/> -->
+        </id>
+        
+        <property name = "date" column="EVENT_DATE" type ="de.application.hibernate.hibernateUserTypes.DateToLocalDate"/>
+		<property name = "activation" column="SPENDING_ACTIVATION" type ="de.application.hibernate.hibernateUserTypes.StringToActivity"/>	
+        <property name="description" column="SPENDING_DESCRIPTION" type="string"/>      
+        <property name="amount" column="SPENDING_AMOUNT" type="double"/>     
+        <property name="isChecked" column="SPENDING_CHECKED" type="boolean"/>
+
+    </class>
+
+<!--
+This is an example of a user defined type, but in this hibernate version boolean is available and we don't need the type. 
+
+<property name="isChecked" column="SPENDING_CHECKED" type="tinyint_boolean"/>
+<typedef class="de.application.hibernate.hibernateUserTypes.TinyIntegerToBoolean" name="tinyint_boolean"/>
+-->
+    
+</hibernate-mapping>

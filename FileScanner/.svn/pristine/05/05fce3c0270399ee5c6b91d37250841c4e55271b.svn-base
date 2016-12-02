@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Java Developer Test</title>
+  <style type="text/css">
+  <!--
+  /* HTML Elements */
+  address { font:           10px Arial,Helvetica,sans-serif;
+            text-align:     right; }
+  body    { background:     #EEEEEE;
+            font:           12px Arial,Helvetica,sans-serif;
+            line-height:    18px;
+            margin:         0px;
+            padding-top:    20px;
+            padding-left:   10%;
+            padding-bottom: 20px;
+            padding-right:  10%;
+            text-align:     justify; }
+  code    { background:     #DDDDDD;
+            border:         1px #999999 solid;
+            font:           11px Courier;
+            margin:         6px;
+            padding:        4px; }
+  h1      { font-size:      20px;
+            text-align:     center; }
+  h2      { font-size:      18px;
+            text-align:     left; }
+  pre     { background:     #DDDDDD;
+            border:         1px #999999 solid;
+            font:           10px Courier;
+            line-height:    16px;
+            margin:         12px;
+            padding:        6px; }
+
+  /* Classes */
+  .caption   { font:         10px Arial,Helvetica,sans-serif;
+               font-weight:  bold;
+               margin:       -10px 16px 12px 16px;
+               text-align:   right;
+               width:        100%; }
+  .important { background:   #FFCC99;
+               border:       1px #EA7500 solid;
+               font-weight:  bold;
+               margin:       12px;
+               padding:      12px; }
+  -->
+  </style>
+</head>
+
+<body>
+
+<h1>Java<sup><small>TM</small></sup> Developer Test</h1>
+
+<p>Dear candidate,<br/>
+this is a short test of your knowledge of the Java<sup><small>TM</small></sup>
+programming language and your experience in object oriented design. You do
+<em>not</em> need any special knowledge about JFC/Swing, JDBC or any other
+javax packages to successfully complete this test. The only thing necessary
+is some experience with object oriented methods and with the Java language
+and the core classes.</p>
+
+
+<h2>Enclosed demo program</h2>
+
+<p>Enclosed you will find a program (and its source code) that prints out the
+dimensions and the compression rates of JPEG and GIF files. For directories
+and unknown file types a suitable message is displayed.</p>
+
+<pre>
+D:\JavaTest>java PictureInfo testpic.jpg
+name: testpic.jpg, type: JPEG-image
+  length:      47669
+  size:        1050 x 681
+  compression: 2%
+</pre>
+<div class="caption">Example output from PictureInfo</div>
+
+<p>The program does not need to be used for your development. Its only
+purpose is to illustrate how to determine the file type and the
+dimensions of JPEG and GIF pictures.</p>
+
+
+<h2>Task</h2>
+
+<p>The task is to develop a set of classes for recursively scanning a
+directory, its subdirectories and included files. The sizes, dimensions
+and compressions rates are to be computed and stored (in memory) for all
+directories and picture files. For directories it must be possible to
+compute the sum of the file sizes in the directory and its subdirectories,
+the average image dimensions and average compression rates.</p>
+
+<p>The directory and file hierarchy should be mapped to a suitable
+object model for which it is easy to add further functionality.</p>
+
+<p>The main focus of this test is a reasonable class design. Reusability
+and extensibility are very important design factors and should be
+reflected in the design.</p>
+
+<div class="important">
+The information about the directories and files must be available
+after a <em>single scan</em> of the directory structure,
+<em>without</em> scanning the file system or accessing the files each
+time the information is needed.
+</div>
+
+<p>It should be easy to use the resulting classes for the development
+of a directory analysis tool, which uses a tree to visualize the
+file hierarchy, allows the user to navigate through it and shows
+the information about the files and directories he selects. But
+the development of such a tool is <em>not</em> part of this test.</p>
+
+<p>The information about given directories and files should be
+printed to the console by a simple test program as shown in the
+example blow.</p>
+
+<pre>
+D:\JavaTest>java PictureInfo d:/JavaTest
+name: d:/JavaTest, type: directory
+  length:      50023
+  size:        656 x 413
+  compression: 4%
+name: d:/JavaTest/testpic.gif, type: GIF-image
+  length:      2354
+  size:        262 x 145
+  compression: 6%
+name: d:/JavaTest/testpic.jpg, type: JPEG-image
+  length:      47669
+  size:        1050 x 681
+  compression: 2%
+</pre>
+<div class="caption">Example console output</div>
+
+
+<h2>Results</h2>
+
+Please deliver the following results:
+
+<ul>
+<li>executable JAR file</li>
+<li>source files</li>
+<li>documentation</li>
+<li>simple UML class diagram</li>
+<li>Javadoc generated source documentation</li>
+<li>the total time you needed to complete the test</li>
+</ul>
+
+<address>&copy; 2000-2005 KAQ, FG, TR</address>
+
+</body>
+</html>

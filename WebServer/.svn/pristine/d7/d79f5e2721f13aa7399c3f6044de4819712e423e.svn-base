@@ -1,0 +1,6 @@
+telnet from same machine
+- telnet localhost 1738
+
+telnet from other machine in same network
+- telnet <ip-address> 1738
+192.168.0.14

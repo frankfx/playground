@@ -1,0 +1,16 @@
+format:
+erstmal csv
+Datenbank
+
+import:
+csv
+
+export:
+csv
+pdf (Auswahlliste wie pdf zusammengestellt werden soll)
+
+
+sonstiges
+Datum automatisch setzten
+korrektur in Tabelle
+
